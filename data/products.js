@@ -656,5 +656,26 @@ const products = [
       "apparel",
       "mens"
     ]
+  },
+  {
+    id: "pc2143d9-5324-503f-c7cf-67fee186a945",
+    image: "images/products/backpack.jpg",
+    name: "Classic Backpack of 30L Medium Water Resistant",
+    rating: {
+      stars: 4.0,
+      count: 1256
+    },
+    priceCents: 1299,
+    
+  },
+  {
+    id: "zr5141p8-1364-403g-b3ca-82tpl875n124",
+    image: "images/products/umbrella.jpg",
+    name: " Big Umbrella for Men, 3 Fold with Reflective Stripe Travel",
+    rating: {
+      stars: 4.5,
+      count: 2254
+    },
+    priceCents: 899,
   }
 ];
