@@ -4,6 +4,7 @@ import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderCheckoutHeader } from './checkoutHeader.js';
 
 export function renderOrderSummary() {
   let cartSummaryHTML = '';
@@ -145,10 +146,8 @@ export function renderOrderSummary() {
         const productId = link.dataset.productId;
         removeFromCart(productId);
         
-        const container = document.querySelector(`.js-cart-item-container-${productId}`);
-        container.remove();
-
-        updateCartQuantity();
+        renderOrderSummary(); // instead of removing this product container using DOM ,  regenerate the html
+        renderCheckoutHeader();
         renderPaymentSummary();
       });
     });
@@ -185,17 +184,7 @@ export function renderOrderSummary() {
     );
     quantityLabel.innerHTML = newQuantity;
   
-    updateCartQuantity();
+    renderCheckoutHeader();
     renderPaymentSummary();
   }  
-  
-  
-  function updateCartQuantity(){
-    const cartQuantity = calculateCartQuantity();
-  
-    document.querySelector('.js-return-to-home-link')
-      .innerHTML = `${cartQuantity} items`
-  }
-  
-  updateCartQuantity(); // to display the cart quantity on checkout  header
 }
