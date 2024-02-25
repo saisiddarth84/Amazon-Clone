@@ -150,6 +150,11 @@ export function renderOrderSummary() {
 
   function saveNewQuantity(productId) {
     const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+
+    const container = document.querySelector(
+      `.js-cart-item-container-${productId}`
+    );
+    container.classList.remove('is-editing-quantity');
   
     const newQuantity = Number(quantityInput.value);
   
@@ -159,17 +164,8 @@ export function renderOrderSummary() {
     }
     updateQuantity(productId, newQuantity);
   
-    const container = document.querySelector(
-      `.js-cart-item-container-${productId}`
-    );
-    container.classList.remove('is-editing-quantity');
-  
-    const quantityLabel = document.querySelector(
-      `.js-quantity-label-${productId}`
-    );
-    quantityLabel.innerHTML = newQuantity;
-  
     renderCheckoutHeader();
+    renderOrderSummary();
     renderPaymentSummary();
   }  
 }
