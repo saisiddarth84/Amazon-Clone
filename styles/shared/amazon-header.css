@@ -57,6 +57,16 @@
     height: 35px;
     margin-top: 5px;
   }
+
+  .amazon-header > div{
+    scale: 0.8;
+  }
+  .amazon-header-middle-section input{
+    width: 100px;
+  }
+  .amazon-header{
+    justify-content: space-around;
+  }
 }
 
 .amazon-header-middle-section {
@@ -147,3 +157,4 @@
   width: 26px;
   text-align: center;
 }
+
